@@ -1,0 +1,16 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+    <p>
+    {% load static %} <img src="{% static "https://images.triumphmotorcycles.co.uk/media-library/images/motorcycles/rocket%203/my21/yb1%20-%20rocket%203%20r%20se/variant%20page%20images/media%20carousel%20images/my21-rocket-3-4-limited-edition-media-carousel-slide-1-1366x768.jpg" %}" alt="Home"/>
+    </p>
+
+  <form method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+        
+    <button name="submit">Register</button>
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+  </form>
+    
+{% endblock content %}
